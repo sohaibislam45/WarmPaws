@@ -1,21 +1,8 @@
-// src/firebase/firebase.config.js
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-
-// Firebase configuration from .env.local
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+export const firebaseConfig = {
+  apiKey: "AIzaSyDIb9V99p7rX9aVYksb3Et8V7OOzMYzM1w",
+  authDomain: "warmpaws-f1dcf.firebaseapp.com",
+  projectId: "warmpaws-f1dcf",
+  storageBucket: "warmpaws-f1dcf.appspot.com",
+  messagingSenderId: "359986045317",
+  appId: "1:359986045317:web:c9511f520747f9a67da4ec",
 };
-
-// Initialize Firebase app
-const app = initializeApp(firebaseConfig);
-
-// Export auth instance
-export const auth = getAuth(app);
-
-export default app;

@@ -1,175 +1,56 @@
-import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { AuthContext } from "./AuthContext";
-
-// Import real Firebase helpers (replace mock helpers)
+import "./init";
 import {
-  signUpWithEmail,
-  signInWithEmail,
-  signOutUser,
-  signInWithGooglePopup,
-  updateUserProfile,
-  sendResetPasswordEmail,
-  onAuthStateChangedListener,
-} from "../firebase/auth";
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile as fbUpdateProfile,
+  sendPasswordResetEmail,
+  onAuthStateChanged,
+} from "firebase/auth";
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+const auth = getAuth();
+const googleProvider = new GoogleAuthProvider();
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((u) => {
-      setUser(
-        u
-          ? {
-              displayName: u.displayName,
-              email: u.email,
-              photoURL: u.photoURL,
-              uid: u.uid,
-            }
-          : null
-      );
-      setLoading(false);
+export async function signInWithGooglePopup() {
+  return await signInWithPopup(auth, googleProvider);
+}
+
+export async function signUpWithEmail({
+  name,
+  email,
+  password,
+  photoURL,
+} = {}) {
+  const cred = await createUserWithEmailAndPassword(auth, email, password);
+  if (name || photoURL)
+    await fbUpdateProfile(cred.user, {
+      displayName: name || cred.user.displayName,
+      photoURL: photoURL || cred.user.photoURL,
     });
+  return cred;
+}
 
-    return () => unsubscribe && unsubscribe();
-  }, []);
+export async function signInWithEmail({ email, password } = {}) {
+  return await signInWithEmailAndPassword(auth, email, password);
+}
 
-  const persistUser = (u) => setUser(u);
+export async function signOutUser() {
+  return await signOut(auth);
+}
 
-  const signup = async (data = {}) => {
-    try {
-      setLoading(true);
-      const cred = await signUpWithEmail(data);
-      const u = cred.user;
-      const mapped = {
-        displayName: u.displayName,
-        email: u.email,
-        photoURL: u.photoURL,
-        uid: u.uid,
-      };
-      persistUser(mapped);
-      toast.success("Registered successfully");
-      return mapped;
-    } catch (err) {
-      console.error("Signup error:", err);
-      toast.error(err?.message || "Signup failed");
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  };
+export async function updateUserProfile({ displayName, photoURL } = {}) {
+  if (!auth.currentUser) throw new Error("No authenticated user");
+  await fbUpdateProfile(auth.currentUser, { displayName, photoURL });
+  return auth.currentUser;
+}
 
-  const login = async (data = {}) => {
-    try {
-      setLoading(true);
-      const cred = await signInWithEmail(data);
-      const u = cred.user;
-      const mapped = {
-        displayName: u.displayName,
-        email: u.email,
-        photoURL: u.photoURL,
-        uid: u.uid,
-      };
-      persistUser(mapped);
-      toast.success("Login successful");
-      return mapped;
-    } catch (err) {
-      console.error("Login error:", err);
-      toast.error(err?.message || "Login failed");
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  };
+export async function sendResetPasswordEmail(email) {
+  return await sendPasswordResetEmail(auth, email);
+}
 
-  const logout = async () => {
-    try {
-      setLoading(true);
-      await signOutUser();
-      persistUser(null);
-      toast.success("Logged out");
-      return true;
-    } catch (err) {
-      console.error("Logout error:", err);
-      toast.error(err?.message || "Logout failed");
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const googleSignIn = async () => {
-    try {
-      setLoading(true);
-      const cred = await signInWithGooglePopup();
-      const u = cred.user;
-      const mapped = {
-        displayName: u.displayName,
-        email: u.email,
-        photoURL: u.photoURL,
-        uid: u.uid,
-      };
-      persistUser(mapped);
-      toast.success("Signed in with Google");
-      return mapped;
-    } catch (err) {
-      console.error("Google sign-in error:", err);
-      toast.error(err?.message || "Google sign-in failed");
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const updateProfile = async ({ displayName, photoURL } = {}) => {
-    try {
-      setLoading(true);
-      await updateUserProfile({ displayName, photoURL });
-      const updated = { ...(user || {}), displayName, photoURL };
-      persistUser(updated);
-      toast.success("Profile updated");
-      return updated;
-    } catch (err) {
-      console.error("Update profile error:", err);
-      toast.error(err?.message || "Update failed");
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const resetPassword = async (email) => {
-    try {
-      setLoading(true);
-      await sendResetPasswordEmail(email);
-      toast.success(`Reset email sent to ${email}`);
-      return true;
-    } catch (err) {
-      console.error("Reset password error:", err);
-      toast.error(err?.message || "Reset failed");
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <AuthContext.Provider
-      value={{
-        user,
-        loading,
-        signup,
-        login,
-        logout,
-        googleSignIn,
-        updateProfile,
-        resetPassword,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
-};
-
-export default AuthProvider;
+export function onAuthStateChangedListener(cb) {
+  return onAuthStateChanged(auth, cb);
+}

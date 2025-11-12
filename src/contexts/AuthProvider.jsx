@@ -9,7 +9,7 @@ import {
   updateUserProfile,
   sendResetPasswordEmail,
   onAuthStateChangedListener,
-} from "./mockAuthHelpers";
+} from "../firebase/auth";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);

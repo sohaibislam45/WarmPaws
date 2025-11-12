@@ -30,14 +30,16 @@ export default function Login() {
     }
   };
 
-  const handleGoogle = async () => {
-    try {
-      await googleSignIn();
-      navigate(from, { replace: true });
-    } catch {
-      toast.error("Google sign-in failed");
-    }
-  };
+ const handleGoogle = async () => {
+   try {
+     await googleSignIn(); // AuthProvider sets user
+     navigate(from, { replace: true });
+   } catch (err) {
+     toast.error("Google sign-in failed: " + (err.message || ""));
+   }
+ };
+
+
 
   return (
     <div className="card p-6 shadow">

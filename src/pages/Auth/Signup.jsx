@@ -1,4 +1,3 @@
-// src/pages/Auth/Signup.jsx
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -36,10 +35,12 @@ export default function Signup() {
     try {
       await googleSignIn();
       navigate("/");
-    } catch {
-      setError("Google signup failed");
+    } catch (err) {
+      setError("Google signup failed: " + (err.message || ""));
     }
   };
+
+
 
   return (
     <div className="card p-6 shadow">

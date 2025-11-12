@@ -76,10 +76,11 @@ const Navbar = () => {
               <div className="hidden md:flex items-center gap-3">
                 <div className="relative group">
                   <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary">
-                    {user.photoURL ? (
+                    {user?.photoURL ? (
                       <img
                         src={user.photoURL}
                         alt={user.displayName || user.email}
+                        className="object-cover w-full h-full"
                       />
                     ) : (
                       <FaUserCircle className="w-full h-full text-gray-400" />
