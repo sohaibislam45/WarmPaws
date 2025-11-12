@@ -8,24 +8,24 @@ import React, { useEffect, useRef, useState } from "react";
  * - CSS-driven background images
  */
 
+
+
 const slides = [
   {
     title: "Cozy Winter Coats",
     subtitle: "Keep your pet warm and stylish",
     image:
-      "https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=1200&q=80",
+      "https://i.ibb.co.com/1fSV5yxV/360-F-481854656-g-HGTn-Bsc-KXp-FEg-VTw-AT4-DL4-NXXNh-DKU9.jpg",
   },
   {
     title: "Grooming for Cold Weather",
     subtitle: "Protective trims and skin care tips",
-    image:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&q=80",
+    image: "https://i.ibb.co.com/PsPmdTWf/images.jpg",
   },
   {
     title: "Health Tips for Pets",
     subtitle: "Seasonal advice from experts",
-    image:
-      "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1200&q=80",
+    image: "https://i.ibb.co.com/PZwNnbW3/107427039-gettyimages-636475496.jpg",
   },
 ];
 

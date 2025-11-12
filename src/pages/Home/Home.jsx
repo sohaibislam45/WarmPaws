@@ -1,9 +1,10 @@
-// src/pages/Home/Home.jsx
 import React from "react";
 import HeroSlider from "../../components/HeroSlider";
 import ServiceList from "../../components/ServiceList";
 import experts from "../../data/experts.json";
 import tips from "../../data/tips.json";
+import ExtraShop from "../../components/ExtraShop";
+import WinterTips from "../../components/WinterTips";
 
 export default function Home() {
   return (
@@ -51,15 +52,11 @@ export default function Home() {
         </div>
       </section>
 
+      <section className=" mb-4">
+        <ExtraShop/>
+      </section>
       <section>
-        <h2 className="text-xl font-semibold mb-4">
-          Extra — Winter Clothing Shop
-        </h2>
-        <p className="text-sm text-gray-600">
-          Browse curated cozy coats and winter wear for small to large dogs.
-          (This section is a demo placeholder you can replace with shop
-          integrations later.)
-        </p>
+        <WinterTips/>
       </section>
     </div>
   );

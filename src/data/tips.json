@@ -1,14 +1,27 @@
 [
   {
-    "title": "Limit outdoor exposure",
-    "text": "Shorten walks during very cold days and avoid staying outside for extended periods."
+    "id": 1,
+    "title": "Limit Outdoor Time",
+    "text": "Shorten walks during extremely cold days. Multiple short play sessions are better than one long exposure."
   },
   {
-    "title": "Check paws after walks",
-    "text": "Wipe and inspect paws for ice buildup or chemical de-icers after outdoor walks."
+    "id": 2,
+    "title": "Protect Their Paws",
+    "text": "Use booties or apply paw balm to avoid cracked pads from ice and salt. Always rinse paws after walks."
   },
   {
-    "title": "Provide warm bedding",
-    "text": "Offer insulated bedding and keep sleeping areas away from drafts."
+    "id": 3,
+    "title": "Dress in Layers",
+    "text": "Use warm, breathable layers: a base layer (light) + an insulated coat for very cold days. Avoid overheating indoors."
+  },
+  {
+    "id": 4,
+    "title": "Adjust Food & Hydration",
+    "text": "Pets may need slightly more calories if they stay outdoors more, but always consult your vet. Keep water unfrozen and available."
+  },
+  {
+    "id": 5,
+    "title": "Watch For Hypothermia",
+    "text": "Signs include shivering, slow breathing, and lethargy. Move the pet indoors and contact a vet if you suspect hypothermia."
   }
 ]

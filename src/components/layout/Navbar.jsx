@@ -1,10 +1,11 @@
 // src/components/layout/Navbar.jsx
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthContext";
+import iconimg from "../../assets/icon.png"
 
 const Navbar = () => {
   const auth = useContext(AuthContext) || {};
@@ -12,16 +13,26 @@ const Navbar = () => {
   const logout = auth.logout ?? (() => Promise.resolve());
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [imgSrc, setImgSrc] = useState(null);
+
+  useEffect(() => {
+    setImgSrc(user?.photoURL || null);
+    console.log("Navbar user:", user);
+  }, [user?.photoURL, user?.email, user?.displayName]);
 
   const handleLogout = async () => {
     try {
       await logout();
-      // navigate fallback
       window.location.href = "/";
     } catch (err) {
-      console.error("Update profile error:", err);
-      toast.error(err.message || "Update failed");
+      console.error("Logout error:", err);
+      toast.error(err.message || "Logout failed");
     }
+  };
+
+  const onImgError = () => {
+    // fallback to icon by clearing imgSrc
+    setImgSrc(null);
   };
 
   const NavItem = ({ to, children }) => (
@@ -44,9 +55,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-lg bg-linear-to-br from-amber-300 to-rose-300 flex items-center justify-center text-white font-bold">
-                WP
-              </div>
+              <img className="w-13" src={iconimg} alt="" />
               <div>
                 <span className="block text-lg font-semibold">WarmPaws</span>
                 <span className="block text-xs text-gray-500">
@@ -75,15 +84,17 @@ const Navbar = () => {
             ) : (
               <div className="hidden md:flex items-center gap-3">
                 <div className="relative group">
-                  <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary">
-                    {user?.photoURL ? (
+                  <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary bg-gray-100 flex items-center justify-center">
+                    {imgSrc ? (
                       <img
-                        src={user.photoURL}
-                        alt={user.displayName || user.email}
+                        src={imgSrc}
+                        alt={user.displayName || user.email || "User avatar"}
                         className="object-cover w-full h-full"
+                        onError={onImgError}
+                        loading="lazy"
                       />
                     ) : (
-                      <FaUserCircle className="w-full h-full text-gray-400" />
+                      <FaUserAlt className="text-gray-500 text-xl" />
                     )}
                   </div>
                   <div className="absolute right-0 mt-2 hidden group-hover:block bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap">
@@ -138,14 +149,17 @@ const Navbar = () => {
               ) : (
                 <div className="px-1 pt-2 flex items-center gap-2">
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary">
-                      {user.photoURL ? (
+                    <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary bg-gray-100 flex items-center justify-center">
+                      {imgSrc ? (
                         <img
-                          src={user.photoURL}
-                          alt={user.displayName || user.email}
+                          src={imgSrc}
+                          alt={user.displayName || user.email || "User avatar"}
+                          className="object-cover w-full h-full"
+                          onError={onImgError}
+                          loading="lazy"
                         />
                       ) : (
-                        <FaUserCircle className="w-full h-full text-gray-400" />
+                        <FaUserAlt className="text-gray-500 text-xl" />
                       )}
                     </div>
                     <div>

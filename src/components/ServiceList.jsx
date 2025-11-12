@@ -9,7 +9,6 @@ export default function ServiceList({ limit = 6 }) {
   if (loading) return <LoadingSpinner />;
   if (error) return <div className="text-red-500">Failed to load services</div>;
 
-  // if data is a single object, wrap into array
   const list = Array.isArray(data) ? data : [data];
 
   return (

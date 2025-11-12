@@ -7,6 +7,7 @@ import {
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
+import iconimg from "../../assets/icon.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,9 +18,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
           <div>
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-linear-to-br from-amber-300 to-rose-300 flex items-center justify-center text-white font-bold">
-                WP
-              </div>
+              <img className="w-13" src={iconimg} alt="" />
               <div>
                 <h3 className="text-lg font-semibold">WarmPaws</h3>
                 <p className="text-sm text-neutral-300">
@@ -35,19 +34,19 @@ const Footer = () => {
 
             <div className="flex items-center gap-3 mt-4">
               <a
-                href="mailto:info@warmpaws.example"
+                href="sohaibislam@gmail.com"
                 className="link link-hover text-sm text-neutral-200"
                 aria-label="Email WarmPaws"
               >
-                info@warmpaws.example
+                sohaibislam@gmail.com
               </a>
               <span className="text-neutral-400">|</span>
               <a
-                href="tel:+1234567890"
+                href="01234567890"
                 className="text-sm text-neutral-200"
                 aria-label="Call WarmPaws"
               >
-                +1 (234) 567-890
+                +880123456789
               </a>
             </div>
           </div>

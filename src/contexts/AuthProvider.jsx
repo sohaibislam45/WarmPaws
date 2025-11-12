@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "./AuthContext";
+import { getAuth } from "firebase/auth";
 import {
   signUpWithEmail,
   signInWithEmail,
@@ -35,21 +36,31 @@ export const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const signup = async (data = {}) => {
-    try {
-      setLoading(true);
-      const cred = await signUpWithEmail(data);
-      setUser(cred.user);
-      toast.success("Registered successfully");
-      return cred.user;
-    } catch (err) {
-      console.error("Signup error:", err);
-      toast.error(err?.message || "Signup failed");
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  };
+const signup = async (data = {}) => {
+  try {
+    setLoading(true);
+
+    const cred = await signUpWithEmail(data);
+    const freshUser = (cred && cred.user) || getAuth().currentUser;
+
+    const mapped = {
+      displayName: freshUser?.displayName || null,
+      email: freshUser?.email || null,
+      photoURL: freshUser?.photoURL || null,
+      uid: freshUser?.uid,
+    };
+
+    setUser(mapped);
+    toast.success("Registered successfully");
+    return mapped;
+  } catch (err) {
+    console.error("Signup error:", err);
+    toast.error(err?.message || "Signup failed");
+    throw err;
+  } finally {
+    setLoading(false);
+  }
+};
 
   const login = async (data = {}) => {
     try {

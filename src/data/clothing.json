@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Insulated Dog Coat",
+    "brand": "PawCare Studio",
+    "price": 29,
+    "rating": 4.8,
+    "image": "https://i.ibb.co/0s3pdnc/dog-coat-1.jpg",
+    "description": "Water-resistant insulated coat with soft fleece lining. Keeps small to medium dogs warm during winter walks."
+  },
+  {
+    "id": 2,
+    "name": "Reflective Winter Jacket",
+    "brand": "WarmWalks",
+    "price": 34,
+    "rating": 4.7,
+    "image": "https://i.ibb.co/2n0m3kF/dog-jacket-2.jpg",
+    "description": "Lightweight reflective jacket with zip closure and tummy coverage. Great for evening walks."
+  },
+  {
+    "id": 3,
+    "name": "Wool Sweater",
+    "brand": "CozyPets",
+    "price": 22,
+    "rating": 4.6,
+    "image": "https://i.ibb.co/3vY7bqX/dog-sweater-3.jpg",
+    "description": "Stretchy knit wool sweater designed for easy on/off and superior warmth."
+  },
+  {
+    "id": 4,
+    "name": "Booties (4-pack)",
+    "brand": "PawGuard",
+    "price": 18,
+    "rating": 4.5,
+    "image": "https://i.ibb.co/w4K8P8P/dog-booties-4.jpg",
+    "description": "Anti-slip winter booties to protect paws from ice-melt salt and cold surfaces."
+  }
+]

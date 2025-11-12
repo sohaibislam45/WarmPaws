@@ -25,11 +25,17 @@ export async function signUpWithEmail({
   photoURL,
 } = {}) {
   const cred = await createUserWithEmailAndPassword(auth, email, password);
-  if (name || photoURL)
+
+  if (name || photoURL) {
     await fbUpdateProfile(cred.user, {
-      displayName: name || cred.user.displayName,
-      photoURL: photoURL || cred.user.photoURL,
+      displayName: name || cred.user.displayName || null,
+      photoURL: photoURL || cred.user.photoURL || null,
     });
+    if (typeof cred.user.reload === "function") {
+      await cred.user.reload();
+    }
+  }
+
   return cred;
 }
 
