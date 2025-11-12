@@ -1,0 +1,122 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+    "image": "https://i.ibb.co.com/VpkntcHY/71-Ocn0-IKv-UL-AC-UF894-1000-QL80.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+    "image": "https://i.ibb.co.com/WJC8FRt/11af2ec-beca-b60-f042-7e2cc242d743-best-dog-brush-for-shedding-feature-image.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Heated Pet Bed Setup",
+    "providerName": "WarmWhiskers Care",
+    "providerEmail": "support@warmwhiskers.com",
+    "price": 40,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Installation and adjustment of heated pet beds for cozy winter nights.",
+    "image": "https://i.ibb.co.com/QF6j12WJ/pet-self-warming-bed.webp",
+    "category": "Comfort"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Winter Wellness Checkup",
+    "providerName": "HealthyTails Vet Clinic",
+    "providerEmail": "care@healthytails.com",
+    "price": 55,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Full health screening focused on winter-related issues such as dry skin and joint stiffness.",
+    "image": "https://i.ibb.co.com/6cZcJ5X9/close-up-veterinary-doctor-taking-care-pet-Freepik-sm.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Cold Weather Nutrition Plan",
+    "providerName": "PetFuel Nutritionists",
+    "providerEmail": "info@petfuel.com",
+    "price": 35,
+    "rating": 4.6,
+    "slotsAvailable": 6,
+    "description": "Custom diet plans to help your pet stay energized and warm through winter.",
+    "image": "https://i.ibb.co.com/ynH3JFcx/mozhno-li-sobakam-syroe-myaso-2-jpg.webp",
+    "category": "Nutrition"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Winter Paw Protection Workshop",
+    "providerName": "SnowSafe Paws",
+    "providerEmail": "team@snowsafe.com",
+    "price": 20,
+    "rating": 4.5,
+    "slotsAvailable": 8,
+    "description": "Learn to apply paw wax and booties to protect against ice and salt burns.",
+    "image": "https://i.ibb.co.com/4wxx2RFn/Frenchie-boot-3.webp",
+    "category": "Training"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Pet Sweater Knitting Service",
+    "providerName": "CozyKnit Pets",
+    "providerEmail": "orders@cozyknit.com",
+    "price": 45,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Handmade sweaters designed to fit your pet perfectly and keep them stylishly warm.",
+    "image": "https://i.ibb.co.com/SDjRgSwN/dog-sweater-5001.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Indoor Play & Exercise Session",
+    "providerName": "PlayPaws Center",
+    "providerEmail": "contact@playpaws.com",
+    "price": 28,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Fun indoor activities to keep your pets active during cold and snowy days.",
+    "image": "https://i.ibb.co.com/k24dzJf5/how-to-exercise-a-dog-without-walking-creative-indoor-activities-for-happy-pups.webp",
+    "category": "Activity"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Winter Pet Photography Session",
+    "providerName": "FrostyTails Studio",
+    "providerEmail": "photo@frostytails.com",
+    "price": 60,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Capture your pet’s winter charm with a themed indoor or outdoor photo session.",
+    "image": "https://i.ibb.co.com/Z626mWWH/Dogs-in-snow10.webp",
+    "category": "Photography"
+  },
+  {
+    "serviceId": 10,
+    "serviceName": "Winter Travel Crate Insulation",
+    "providerName": "PetVoyage Solutions",
+    "providerEmail": "help@petvoyage.com",
+    "price": 38,
+    "rating": 4.6,
+    "slotsAvailable": 4,
+    "description": "Upgrade your pet’s travel crate with thermal lining and cozy padding for winter trips.",
+    "image": "https://i.ibb.co.com/4Z31Xxzr/puff-1500x.webp",
+    "category": "Travel"
+  }
+]
