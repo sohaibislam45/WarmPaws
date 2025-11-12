@@ -1,8 +1,10 @@
 // src/pages/Auth/Signup.jsx
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { validatePassword } from "../../utils/validators";
+import { FcGoogle } from "react-icons/fc";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Signup() {
   const { signup, googleSignIn } = useContext(AuthContext);
@@ -84,7 +86,7 @@ export default function Signup() {
               onClick={() => setShowPass((s) => !s)}
               className="absolute right-2 top-2 text-gray-500"
             >
-              {showPass ? "Hide" : "Show"}
+              {showPass ? <FaEye /> : <FaEyeSlash />}
             </button>
           </div>
           {error && <div className="text-sm text-red-500 mt-1">{error}</div>}
@@ -97,8 +99,14 @@ export default function Signup() {
 
       <div className="flex gap-2">
         <button onClick={handleGoogle} className="btn btn-outline w-full">
-          Continue with Google
+          {<FcGoogle />} Continue with Google
         </button>
+      </div>
+      <div className="mt-3">
+        <span className="text-xs">Already have an account? </span>
+        <Link to="/login" className="text-xs text-primary link">
+          Login here
+        </Link>
       </div>
     </div>
   );

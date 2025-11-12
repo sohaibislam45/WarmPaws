@@ -6,7 +6,7 @@ A cozy, winter-themed web app designed for pet owners to help keep their furry f
 ---
 
 ## 🌐 Live Demo
-🔗 [Live URL] : https://boisterous-flan-cbbf90.netlify.app/
+🔗 [Live URL] : https://warmpaws-sohaib.netlify.app/
 
 ---
 

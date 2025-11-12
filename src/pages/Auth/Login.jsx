@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import toast from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 export default function Login() {
   const { login, googleSignIn, user } = useContext(AuthContext);
@@ -39,7 +41,7 @@ export default function Login() {
 
   return (
     <div className="card p-6 shadow">
-      <h2 className="text-xl font-semibold mb-4">Login</h2>
+      <h2 className="text-2xl text-center font-bold mb-4">Login</h2>
       <form onSubmit={submit} className="space-y-3">
         <div>
           <label className="text-sm">Email</label>
@@ -66,27 +68,30 @@ export default function Login() {
               onClick={() => setShowPass((s) => !s)}
               className="absolute right-2 top-2 text-gray-500"
             >
-              {showPass ? "Hide" : "Show"}
+              {showPass ? <FaEye /> : <FaEyeSlash />}
             </button>
           </div>
         </div>
-
-        <div className="flex items-center justify-between">
+        <div>
           <Link to="/forgot-password" className="text-xs link">
             Forgot password?
           </Link>
-          <button className="btn btn-primary">Login</button>
         </div>
+        <button className="btn btn-primary w-full">Login</button>
       </form>
 
       <div className="divider">OR</div>
 
       <div className="flex gap-2">
         <button onClick={handleGoogle} className="btn btn-outline w-full">
+          {<FcGoogle />}
           Continue with Google
         </button>
-        <Link to="/signup" className="btn btn-ghost">
-          Signup
+      </div>
+      <div className="mt-3">
+        <span className="text-xs">Don't have an account? </span>
+        <Link to="/signup" className="text-xs text-primary link">
+          Register here
         </Link>
       </div>
     </div>
